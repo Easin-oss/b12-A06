@@ -110,20 +110,19 @@
         </div>
         <!--mobile categories-->
         <div class="md:hidden mb-4">
-            <div id="mobile-category" class="w-full p-2 border rounded-lg">
-                <option> All Trees</option>
-                <option>Fruit Tree</option>
-                <option>Flowering Tree</option>
-                <option>Shade Tree</option>
-                <option>Medicinal Tree</option>
-                <option>Timber Tree</option>
-                <option>Evergreen Tree</option>
-                <option>Ornamental Plant</option>
-                <option>Bamboo</option>
-                <option>Climber</option>
-                <option>Aquatic Plant</option>
-
-            </div>
+            <select id="mobileCategory" class="w-full p-2 border rounded-lg">
+        <option>All Trees</option>
+        <option>Fruit Tree</option>
+        <option>Flowering Tree</option>
+        <option>Shade Tree</option>
+        <option>Medicinal Tree</option>
+        <option>Timber Tree</option>
+        <option>Evergreen Tree</option>
+        <option>Ornamental Plant</option>
+        <option>Bamboo</option>
+        <option>Climber</option>
+        <option>Aquatic Plant</option>
+      </select>
         </div>
         <!--- plant-->
         <div class="flex-1 min-w-0">
@@ -237,17 +236,32 @@
             </div>
         </div>
     </div>
+<!-- Mobile Cart Button -->
+<div class="md:hidden fixed bottom-5 right-5 z-50">
+  <button id="mobileCartBtn" class="bg-green-700 text-white px-4 py-2 rounded-full shadow-lg">
+    Cart (<span id="mobile-cart-count">0</span>)
+  </button>
+</div>
 
-
-
-
-
-
-
-
-
-
-
+<!-- Mobile Cart Drawer -->
+<div id="mobileCartDrawer" class="fixed inset-0 bg-black bg-opacity-50 hidden z-50">
+  <div class="absolute bottom-0 w-full bg-white rounded-t-2xl shadow-lg p-4 max-h-[70%] overflow-y-auto">
+    <div class="flex justify-between items-center border-b pb-2 mb-4">
+      <h3 class="text-lg font-semibold text-green-700">Your Cart</h3>
+      <button id="closeMobileCart" class="text-red-500 text-xl"><i class="fas fa-times"></i></button>
+    </div>
+    <div id="mobile-cart-items" class="space-y-3 text-sm">
+      <p class="text-center text-gray-500">Your cart is empty</p>
+    </div>
+    <div class="flex justify-between font-semibold mt-4 text-green-700 text-lg border-t pt-4">
+      <span>Total:</span><span id="mobile-cart-total">$0</span>
+    </div>
+    <div class="flex justify-between font-semibold mt-2 text-green-700 text-lg">
+      <span>Number of Trees:</span><span id="mobile-cart-num">0</span>
+    </div>
+    <button class="mt-4 bg-green-700 hover:bg-green-800 text-white py-2 w-full rounded-lg font-semibold">Proceed to Checkout</button>
+  </div>
+</div>
 
 
 
