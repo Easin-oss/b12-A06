@@ -12,6 +12,19 @@ const menuBtn = document.getElementById('menu-btn');
 const mobileMenu = document.getElementById('mobile-menu');
 menuBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
 
+async function loadAllPlants() {
+    showLoading(true);
+    try {
+        const res = await fetch("https://openapi.programming-hero.com/api/plants");
+        const data = await res.json();
+        allPlants = data.plants;
+        displayPlants(allPlants.slice(0, 9)); 
+    } catch (e) {
+        plantsGrid.innerHTML = '<p class="text-center text-red-500">Error loading plants.</p>';
+    } finally { showLoading(false); }
+}
+
+
 // Filter plants by category
 function loadPlantsByCategory(category) {
     showLoading(true);
@@ -36,7 +49,7 @@ function displayPlants(plants) {
     }
 
 
-plants.forEach(plant => {
+    plants.forEach(plant => {
         const card = document.createElement('div');
         card.className = 'bg-white rounded-xl shadow hover:-translate-y-1 transition p-4 flex flex-col';
         card.innerHTML = `
@@ -51,27 +64,39 @@ plants.forEach(plant => {
             <button class="mt-3 bg-orange-500 hover:bg-orange-600 text-white py-2 rounded-lg font-semibold add-to-cart" data-id="${plant.id}">Add to Cart</button>
           </div>`;
         plantsGrid.appendChild(card);
-      });
+    });
 
-          document.querySelectorAll('.add-to-cart').forEach(btn => {
+    document.querySelectorAll('.add-to-cart').forEach(btn => {
         btn.onclick = () => {
-          const plant = allPlants.find(p => p.id == btn.dataset.id);
-          alert("Added to Cart"); 
-          addToCart(plant);
+            const plant = allPlants.find(p => p.id == btn.dataset.id);
+            alert("Added to Cart");
+            addToCart(plant);
         };
-      });
-    }
+    });
+}
 
-    
-    // Load all plants once
-    async function loadAllPlants() {
-      showLoading(true);
-      try {
-        const res = await fetch("https://openapi.programming-hero.com/api/plants");
-        const data = await res.json();
-        allPlants = data.plants;
-        displayPlants(allPlants.slice(0, 9)); // show first 9
-      } catch (e) {
-        plantsGrid.innerHTML = '<p class="text-center text-red-500">Error loading plants.</p>';
-      } finally { showLoading(false); }
-    }
+
+function addToCart(plant) {
+    const item = cart.find(i => i.id === plant.id);
+    if (item) { item.quantity++; }
+    else { cart.push({ ...plant, quantity: 1 }); }
+    totalPrice += plant.price;
+    updateCartDisplay();
+}
+  function updateCartDisplay() {
+      cartItems.innerHTML = "";
+      if (!cart.length) {
+        cartItems.innerHTML = '<p class="text-center text-gray-500">Your cart is empty</p>';
+      }
+      cart.forEach(item => {
+        const div = document.createElement('div');
+        div.className = 'flex justify-between items-center py-2 border-b';
+        div.innerHTML = `
+          <div>
+            <div class="font-medium">${item.name}</div>
+            <div class="text-green-700 text-sm">$${item.price} x ${item.quantity}</div>
+          </div>
+          <button class="text-red-500 remove" data-id="${item.id}"><i class="fas fa-times"></i></button>`;
+        cartItems.appendChild(div);
+      });
+     
