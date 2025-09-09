@@ -1,11 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" rel="stylesheet">
+
 </head>
+
 <body>
-    <h1>hjjhjhjh</h1>
+    <!---navbar-->
+<section>
+     <nav class="bg-white shadow sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
+            <div class="flex items-center gap-2">
+                <i class="fas fa-tree text-green-700 text-2xl"></i>
+                <span class="font-bold text-xl text-green-700">Green Earth</span>
+            </div>
+            <ul class="hidden md:flex gap-6 font-medium text-gray-600">
+                <li><a href="#" class="hover:text-green-700">Home</a></li>
+                <li><a href="#about" class="hover:text-green-700">About</a></li>
+                <li><a href="#impact" class="hover:text-green-700">Impact</a></li>
+                <li><a href="#form" class="hover:text-green-700">Plant a Tree</a></li>
+            </ul>
+            <button id="menuBtn" class="md:hidden text-green-700 text-2xl"><i class="fas fa-bars"></i></button>
+            <button
+                class="hidden md:block bg-green-700 hover:bg-green-800 text-white px-5 py-2 rounded-full font-semibold">Plant
+                A Tree</button>
+        </div>
+        <div id="mobileMenu" class="hidden md:hidden bg-white shadow-lg">
+            <ul class="flex flex-col p-4 gap-4 text-gray-600">
+                <li><a href="#" class="hover:text-green-700">Home</a></li>
+                <li><a href="#about" class="hover:text-green-700">About</a></li>
+                <li><a href="#impact" class="hover:text-green-700">Impact</a></li>
+                <li><a href="#form" class="hover:text-green-700">Plant a Tree</a></li>
+            </ul>
+        </div>
+    </nav>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script src="./script/script.js"></script>
 </body>
+
 </html>
