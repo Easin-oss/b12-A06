@@ -12,50 +12,66 @@
 
 <body class="font-sans bg-gray-50 text-gray-800">
     <!---navbar-->
-<section>
-     <nav class="bg-white-500 shadow sticky top-0 z-50">
-        <div class="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
-            <div class="flex items-center gap-2">
-                <i class="fas fa-tree text-green-700 text-2xl"></i>
-                <span class="font-bold text-xl text-green-700">Green Earth</span>
+    <section>
+        <nav class="bg-white-500 shadow sticky top-0 z-50">
+            <div class="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
+                <div class="flex items-center gap-2">
+                    <i class="fas fa-tree text-green-700 text-2xl"></i>
+                    <span class="font-bold text-xl text-green-700">Green Earth</span>
+                </div>
+                <ul class="hidden md:flex gap-6 font-medium text-gray-600">
+                    <li><a href="#" class="hover:text-green-700">Home</a></li>
+                    <li><a href="#about" class="hover:text-green-700">About</a></li>
+                    <li><a href="#impact" class="hover:text-green-700">Impact</a></li>
+                    <li><a href="#form" class="hover:text-green-700">Plant a Tree</a></li>
+                </ul>
+                <button id="menu-btn" class="md:hidden text-green-700 text-2xl"><i class="fas fa-bars"></i></button>
+                <button
+                    class="hidden md:block bg-green-500 hover:bg-green-600 text-white px-5 py-2 rounded-full font-semibold">Plant
+                    A Tree</button>
             </div>
-            <ul class="hidden md:flex gap-6 font-medium text-gray-600">
-                <li><a href="#" class="hover:text-green-700">Home</a></li>
-                <li><a href="#about" class="hover:text-green-700">About</a></li>
-                <li><a href="#impact" class="hover:text-green-700">Impact</a></li>
-                <li><a href="#form" class="hover:text-green-700">Plant a Tree</a></li>
-            </ul>
-            <button id="menu-btn" class="md:hidden text-green-700 text-2xl"><i class="fas fa-bars"></i></button>
-            <button class="hidden md:block bg-green-500 hover:bg-green-600 text-white px-5 py-2 rounded-full font-semibold">Plant
-                A Tree</button>
-        </div>
-        <div id="mobile-menu" class="hidden md:hidden bg-white shadow-lg">
-            <ul class="flex flex-col p-4 gap-4 text-gray-600">
-                <li><a href="#" class="hover:text-green-700">Home</a></li>
-                <li><a href="#about" class="hover:text-green-700">About</a></li>
-                <li><a href="#impact" class="hover:text-green-700">Impact</a></li>
-                <li><a href="#form" class="hover:text-green-700">Plant a Tree</a></li>
-            </ul>
-        </div>
-    </nav>
-</section>
-<!--banner section-->
-<section>
-    <div class="relative h-[500px] flex flex-col items-center justify-center text-center text-white px-4"  style="background-image:linear-gradient(rgba(0,0,0,.6),rgba(0,0,0,.6)),url('https://images.unsplash.com/photo-1530836369250-ef72a3f5cda8?auto=format&fit=crop&w=1350&q=80'); background-size:cover; background-position:center;">
+            <div id="mobile-menu" class="hidden md:hidden bg-white shadow-lg">
+                <ul class="flex flex-col p-4 gap-4 text-gray-600">
+                    <li><a href="#" class="hover:text-green-700">Home</a></li>
+                    <li><a href="#about" class="hover:text-green-700">About</a></li>
+                    <li><a href="#impact" class="hover:text-green-700">Impact</a></li>
+                    <li><a href="#form" class="hover:text-green-700">Plant a Tree</a></li>
+                </ul>
+            </div>
+        </nav>
+    </section>
+    <!--banner section-->
+    <section>
+        <div class="relative h-[500px] flex flex-col items-center justify-center text-center text-white px-4"
+            style="background-image:linear-gradient(rgba(0,0,0,.6),rgba(0,0,0,.6)),url('https://images.unsplash.com/photo-1530836369250-ef72a3f5cda8?auto=format&fit=crop&w=1350&q=80'); background-size:cover; background-position:center;">
 
- <h1 class="text-3xl md:text-4xl font-serif mb-4">Plant a Tree, Grow a Future</h1>
-    <p class="text-lg md:text-xl max-w-2xl mb-5">Join our mission to plant 1 million trees and make the Earth greener  for future generations.</p>
-    <button class="hidden md:block bg-green-500 hover:bg-green-600 px-6 py-3 rounded-full font-semibold text-lg">Get Involved</button>
-    </div>
-</section>
-<!--main section-->
- <section class="flex flex-col md:flex-row max-w-7xl mx-auto gap-6 px-6 py-10">
-<!--caegories-->
-<div class="hidden md:block w-60 shrink-0 sticky top-24 self-start bg-white-500 rounded-xl shadow p-4 h-fit">
-<h3 class="text-xl font-bold text-green-600 border-b pb-2 mb-3">Categories</h3>
-
-</div>
- </section>
+            <h1 class="text-3xl md:text-4xl font-serif mb-4">Plant a Tree, Grow a Future</h1>
+            <p class="text-lg md:text-xl max-w-2xl mb-5">Join our mission to plant 1 million trees and make the Earth
+                greener for future generations.</p>
+            <button
+                class="hidden md:block bg-green-500 hover:bg-green-600 px-6 py-3 rounded-full font-semibold text-lg">Get
+                Involved</button>
+        </div>
+    </section>
+    <!--main section-->
+    <section class="flex flex-col md:flex-row max-w-7xl mx-auto gap-6 px-6 py-10">
+        <!--caegories-->
+        <div class="hidden md:block w-60 shrink-0 sticky top-24 self-start bg-white-500 rounded-xl shadow p-4 h-fit">
+            <h3 class="text-xl font-bold text-green-600 border-b pb-2 mb-3">Categories</h3>
+            <ul class="space-y-2 text-gray-600" id="category-list">
+                <li class="category-item cursor-pointer px-3 py-2 rounded bg-green-700 text-white">All Trees</li>
+                <li class="category-item cursor-pointer px-3 py-2 rounded hover:bg-green-100">Fruit Tree</li>
+                <li class="category-item cursor-pointer px-3 py-2 rounded hover:bg-green-100">Shade Tree</li>
+                <li class="category-item cursor-pointer px-3 py-2 rounded hover:bg-green-100">Medicinal Tree</li>
+                <li class="category-item cursor-pointer px-3 py-2 rounded hover:bg-green-100">Timber Tree</li>
+                <li class="category-item cursor-pointer px-3 py-2 rounded hover:bg-green-100">Evergreen Tree</li>
+                <li class="category-item cursor-pointer px-3 py-2 rounded hover:bg-green-100">Ornamental Plant</li>
+                <li class="category-item cursor-pointer px-3 py-2 rounded hover:bg-green-100">Bamboo</li>
+                <li class="category-item cursor-pointer px-3 py-2 rounded hover:bg-green-100">Climber</li>
+                <li class="category-item cursor-pointer px-3 py-2 rounded hover:bg-green-100">Aquatic Plant</li>
+            </ul>
+        </div>
+    </section>
 
 
 
